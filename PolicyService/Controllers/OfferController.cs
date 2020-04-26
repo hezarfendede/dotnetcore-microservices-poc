@@ -22,7 +22,7 @@ namespace PolicyService.Controllers
         public async Task<ActionResult> Post([FromBody] CreateOfferCommand cmd, [FromHeader] string AgentLogin)
         {
             var result = IsNullOrWhiteSpace(AgentLogin) ? await bus.Send(cmd) : await bus.Send(new CreateOfferByAgentCommand(AgentLogin, cmd));
-            return new JsonResult(result);
+            return Ok(result);
         }
     }
 }

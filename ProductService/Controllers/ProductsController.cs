@@ -23,7 +23,7 @@ namespace ProductService.Controllers
         public async Task<ActionResult> GetAll()
         {
             var result = await mediator.Send(new FindAllProductsQuery());
-            return new JsonResult(result);
+            return Ok(result);
         }
 
         // GET api/products/{code}
@@ -31,7 +31,7 @@ namespace ProductService.Controllers
         public async Task<ActionResult> GetByCode([FromRoute]string code)
         {
             var result = await mediator.Send(new FindProductByCodeQuery { ProductCode = code });
-            return new JsonResult(result);
+            return Ok(result);
         }
 
         // POST api/products
@@ -39,7 +39,7 @@ namespace ProductService.Controllers
         public async Task<ActionResult> PostDraft([FromBody] CreateProductDraftCommand request)
         {
             var result = await mediator.Send(request);
-            return new JsonResult(result);
+            return Ok(result);
         }
 
         // POST api/products/activate
@@ -47,7 +47,7 @@ namespace ProductService.Controllers
         public async Task<ActionResult> Activate([FromBody] ActivateProductCommand request)
         {
             var result = await mediator.Send(request);
-            return new JsonResult(result);
+            return Ok(result);
         }
 
         // POST api/products/discontinue
@@ -55,7 +55,7 @@ namespace ProductService.Controllers
         public async Task<ActionResult> Discontinue([FromBody] DiscontinueProductCommand request)
         {
             var result = await mediator.Send(request);
-            return new JsonResult(result);
+            return Ok(result);
         }
     }
 }

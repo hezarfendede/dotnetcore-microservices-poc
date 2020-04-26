@@ -20,7 +20,7 @@ namespace PaymentService.Controllers
         public async Task<ActionResult> AccountBalance(string policyNumber)
         {
             var result = await bus.Send(new GetAccountBalanceQuery { PolicyNumber = policyNumber });
-            return new JsonResult(result);
+            return Ok(result);
         }
     }
 }

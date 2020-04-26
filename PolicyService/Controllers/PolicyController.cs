@@ -22,7 +22,7 @@ namespace PolicyService.Controllers
         public async Task<ActionResult> Post([FromBody] CreatePolicyCommand cmd)
         {
             var result = await bus.Send(cmd);
-            return new JsonResult(result);
+            return Ok(result);
         }
 
         // GET 
@@ -30,7 +30,7 @@ namespace PolicyService.Controllers
         public async Task<ActionResult> Get(string policyNumber)
         {
             var result = await bus.Send(new GetPolicyDetailsQuery { PolicyNumber = policyNumber });
-            return new JsonResult(result);
+            return Ok(result);
         }
 
         // DELETE
@@ -38,7 +38,7 @@ namespace PolicyService.Controllers
         public async Task<ActionResult> Post([FromBody] TerminatePolicyCommand cmd)
         {
             var result = await bus.Send(cmd);
-            return new JsonResult(result);
+            return Ok(result);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace PolicySearchService.Controllers
         public async Task<ActionResult> SearchAsync([FromQuery] string q)
         {
             var result = await bus.Send(new FindPolicyQuery { QueryText = q });
-            return new JsonResult(result);
+            return Ok(result);
         }
     }
 }

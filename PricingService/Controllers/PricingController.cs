@@ -16,13 +16,12 @@ namespace PricingService.Controllers
             this.bus = bus;
         }
 
-
         // POST api/values
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CalculatePriceCommand cmd)
         {
             var result = await bus.Send(cmd);
-            return new JsonResult(result);
+            return Ok(result);
         }
     }
 }
