@@ -1,9 +1,8 @@
-﻿using Nest;
-using PolicySearchService.Domain;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Nest;
+using PolicySearchService.Domain;
 
 namespace PolicySearchService.DataAccess.ElasticSearch
 {
@@ -16,15 +15,15 @@ namespace PolicySearchService.DataAccess.ElasticSearch
             this.elasticClient = elasticClient;
         }
 
-        public async Task Add(Policy policy)
+        public async Task Add(Domain.Policy policy)
         {
             await elasticClient.IndexDocumentAsync(policy);
         }
 
-        public async Task<List<Policy>> Find(string queryText)
+        public async Task<List<Domain.Policy>> Find(string queryText)
         {
             var result = await elasticClient
-                .SearchAsync<Policy>(
+                .SearchAsync<Domain.Policy>(
                     s =>
                         s.From(0)
                         .Size(10)
@@ -37,7 +36,7 @@ namespace PolicySearchService.DataAccess.ElasticSearch
                             )
                     ));
 
-           return result.Documents.ToList();
+            return result.Documents.ToList();
         }
     }
 }

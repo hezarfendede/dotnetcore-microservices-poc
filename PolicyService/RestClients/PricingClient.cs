@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Polly;
 using PricingService.Api.Commands;
 using RestEase;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Steeltoe.Common.Discovery;
 
 namespace PolicyService.RestClients
@@ -19,7 +19,7 @@ namespace PolicyService.RestClients
     {
         private readonly IPricingClient client;
 
-        private static Policy retryPolicy = Policy
+        private static AsyncPolicy retryPolicy = Policy
             .Handle<HttpRequestException>()
             .WaitAndRetryAsync(retryCount: 3, sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(3));
 
