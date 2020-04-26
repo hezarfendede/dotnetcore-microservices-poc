@@ -20,7 +20,7 @@ namespace PaymentService.Init
                 {
                     await AddIfNotExists(demoAccount);
                 }
-                
+
                 await dataStore.CommitChanges();
             }
         }

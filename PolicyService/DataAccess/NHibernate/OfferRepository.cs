@@ -1,10 +1,7 @@
-﻿using NHibernate;
-using PolicyService.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using NHibernate;
 using NHibernate.Linq;
+using PolicyService.Domain;
 
 namespace PolicyService.DataAccess.NHibernate
 {

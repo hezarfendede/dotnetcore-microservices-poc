@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace ChatService
 {
@@ -25,7 +20,7 @@ namespace ChatService
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddCommandLine(args)
                 .Build();
-            
+
             return WebHost.CreateDefaultBuilder(args)
                 .UseConfiguration(config)
                 .UseStartup<Startup>();

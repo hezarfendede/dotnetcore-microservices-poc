@@ -25,6 +25,6 @@ namespace ProductService.DataAccess.EF
 
             services.AddScoped<IProductRepository, ProductRepository>();
             return services;
-        }       
+        }
     }
 }

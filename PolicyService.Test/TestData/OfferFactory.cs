@@ -6,7 +6,7 @@ namespace PolicyService.Test.Domain
 {
     public static class OfferFactory
     {
-        internal static Offer NewOfferValidUntilForAgent(DateTime offerValidityEnd,string agent)
+        internal static Offer NewOfferValidUntilForAgent(DateTime offerValidityEnd, string agent)
         {
             using (var timeMachine = new TimeMachine(offerValidityEnd.AddDays(-30)))
             {
@@ -29,7 +29,7 @@ namespace PolicyService.Test.Domain
                 return offer;
             }
         }
-        
+
         internal static Offer NewOfferValidUntil(DateTime offerValidityEnd)
         {
             using (var timeMachine = new TimeMachine(offerValidityEnd.AddDays(-30)))

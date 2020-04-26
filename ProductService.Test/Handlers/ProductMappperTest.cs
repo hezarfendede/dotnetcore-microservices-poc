@@ -1,10 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
 using ProductService.Api.Queries.Dtos;
 using ProductService.Domain;
 using ProductService.Queries;
 using ProductService.Test.TestData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Xunit;
 
 namespace ProductService.Test.Handlers

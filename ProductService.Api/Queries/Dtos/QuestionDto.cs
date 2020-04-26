@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using ProductService.Api.Queries.Converters;
-using System.Collections.Generic;
 
 namespace ProductService.Api.Queries.Dtos
 {
@@ -19,11 +19,11 @@ namespace ProductService.Api.Queries.Dtos
         Date,
         Numeric
     }
-        
+
     public class ChoiceQuestionDto : QuestionDto
-    {        
+    {
         public IList<ChoiceDto> Choices { get; set; }
-                
+
         public override QuestionType QuestionType => QuestionType.Choice;
     }
 
@@ -37,4 +37,3 @@ namespace ProductService.Api.Queries.Dtos
         public override QuestionType QuestionType => QuestionType.Numeric;
     }
 }
- 

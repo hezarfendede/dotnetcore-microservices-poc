@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PolicyService.Domain
 {
@@ -29,11 +26,15 @@ namespace PolicyService.Domain
         public bool Contains(DateTime theDate)
         {
             if (theDate > ValidTo)
+            {
                 return false;
+            }
 
             if (theDate < ValidFrom)
+            {
                 return false;
-            
+            }
+
             return true;
         }
 
@@ -43,7 +44,7 @@ namespace PolicyService.Domain
         }
 
         public int Days => ValidTo.Subtract(ValidFrom).Days;
-        
+
         object ICloneable.Clone()
         {
             return Clone();

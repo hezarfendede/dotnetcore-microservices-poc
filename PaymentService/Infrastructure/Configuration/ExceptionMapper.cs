@@ -1,7 +1,7 @@
-﻿using GlobalExceptionHandler.WebApi;
+﻿using System.Net;
+using GlobalExceptionHandler.WebApi;
 using Newtonsoft.Json;
 using PaymentService.Api.Exceptions;
-using System.Net;
 
 namespace PaymentService.Configuration
 {

@@ -1,6 +1,6 @@
 ﻿using DynamicExpresso;
-using static System.String;
 using static System.Decimal;
+using static System.String;
 
 namespace PricingService.Domain
 {
@@ -12,9 +12,11 @@ namespace PricingService.Domain
         public bool Applies(Calculation calculation)
         {
             if (IsNullOrEmpty(ApplyIfFormula))
+            {
                 return true;
+            }
 
-            var (paramDefinitions,values) = calculation.ToCalculationParams();
+            var (paramDefinitions, values) = calculation.ToCalculationParams();
             return (bool)new Interpreter()
                 .Parse(ApplyIfFormula, paramDefinitions.ToArray())
                 .Invoke(values.ToArray());

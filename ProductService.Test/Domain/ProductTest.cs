@@ -39,7 +39,7 @@ namespace ProductService.Test.Domain
         public void Product_CoverIsAdded(string code, string name, string description, bool optional, decimal? sumInsured)
         {
             var product = TestProductFactory.EmptyTravel();
-            
+
             product.AddCover(code, name, description, optional, sumInsured);
 
             Assert.NotEmpty(product.Covers);
@@ -70,21 +70,21 @@ namespace ProductService.Test.Domain
         public void Product_DraftCanBeActivated()
         {
             var product = TestProductFactory.InactiveTravel();
-            
+
             product.Activate();
-            
+
             Assert.Equal(ProductStatus.Active, product.Status);
         }
-        
+
         [Fact]
         public void Product_ActiveCannotBeActivated()
         {
             var product = TestProductFactory.Travel();
 
-            var ex = Assert.Throws<ApplicationException>(()=>product.Activate());
+            var ex = Assert.Throws<ApplicationException>(() => product.Activate());
             Assert.Equal("Only draft version can be modified and activated", ex.Message);
         }
     }
 
-   
+
 }

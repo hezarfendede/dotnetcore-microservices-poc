@@ -11,7 +11,7 @@ namespace AuthService.Domain
     {
         private readonly IInsuranceAgents agents;
         private readonly AppSettings appSettings;
-        
+
         public AuthService(IInsuranceAgents agents, IOptions<AppSettings> appSettings)
         {
             this.agents = agents;
@@ -23,23 +23,27 @@ namespace AuthService.Domain
             var agent = agents.FindByLogin(login);
 
             if (agent == null)
+            {
                 return null;
+            }
 
             if (!agent.PasswordMatches(pwd))
+            {
                 return null;
-            
+            }
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[] 
+                Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim("sub", agent.Login), 
+                    new Claim("sub", agent.Login),
                     new Claim(ClaimTypes.Name, agent.Login),
                     new Claim(ClaimTypes.Role, "SALESMAN"),
                     new Claim(ClaimTypes.Role, "USER"),
                     new Claim("avatar", agent.Avatar),
-                    new Claim("userType", "SALESMAN"), 
+                    new Claim("userType", "SALESMAN"),
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

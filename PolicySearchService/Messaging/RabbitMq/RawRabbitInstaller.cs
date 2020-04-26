@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
 using RawRabbit.DependencyInjection.ServiceCollection;
 using RawRabbit.Instantiation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PolicySearchService.Messaging.RabbitMq
 {

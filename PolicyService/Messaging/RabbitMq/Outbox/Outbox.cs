@@ -30,7 +30,9 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
             foreach (var msg in messagesToPush)
             {
                 if (!await TryPush(msg))
+                {
                     break;
+                }
             }
         }
 
@@ -56,12 +58,12 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
                 try
                 {
                     await PublishMessage(msg);
-                    
+
                     session
                         .CreateQuery("delete Message where id=:id")
                         .SetParameter("id", msg.Id)
                         .ExecuteUpdate();
-                    
+
                     tx.Commit();
                     logger.LogSuccessPush();
                     return true;
@@ -101,12 +103,12 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
 
         public void LogSuccessPush()
         {
-            logger.LogInformation("Successfully pushed message");    
+            logger.LogInformation("Successfully pushed message");
         }
 
         public void LogFailedPush(Exception e)
         {
-            logger.LogError(e,"Failed to push message from outbox",null);
+            logger.LogError(e, "Failed to push message from outbox", null);
         }
     }
 }

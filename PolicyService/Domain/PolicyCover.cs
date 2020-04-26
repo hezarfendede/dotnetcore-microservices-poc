@@ -14,24 +14,24 @@ namespace PolicyService.Domain
             Premium = cover.Price;
             CoverPeriod = coverPeriod;
         }
-        
+
         protected PolicyCover() { } //NH required
-        
+
         public PolicyCover EndOn(DateTime endDate)
         {
             var originalDaysCovered = CoverPeriod.Days;
             var daysNotUsed = originalDaysCovered - CoverPeriod.EndOn(endDate).Days;
             var premium = decimal.Round
             (
-                this.Premium - (this.Premium * decimal.Divide(daysNotUsed,originalDaysCovered))
+                Premium - (Premium * decimal.Divide(daysNotUsed, originalDaysCovered))
                 , 2
             );
-            
+
             return new PolicyCover
             {
-                Code = this.Code,
+                Code = Code,
                 Premium = premium,
-                CoverPeriod = this.CoverPeriod.EndOn(endDate)
+                CoverPeriod = CoverPeriod.EndOn(endDate)
             };
         }
 

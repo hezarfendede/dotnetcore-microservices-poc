@@ -24,7 +24,7 @@ namespace PolicyService.Commands
             var priceParams = ConstructPriceParams(request);
             var price = await pricingService.CalculatePrice(priceParams);
 
-            
+
             var o = Offer.ForPriceAndAgent(
                 priceParams.ProductCode,
                 priceParams.PolicyFrom,
@@ -63,6 +63,6 @@ namespace PolicyService.Commands
                 Answers = request.Answers.Select(a => Answer.Create(a.QuestionType, a.QuestionCode, a.GetAnswer())).ToList()
             };
         }
-        
+
     }
 }

@@ -13,7 +13,7 @@ namespace PaymentService.Tests.Domain
             var account = new PolicyAccount("A", "A", "C", "C");
             Equal(PolicyAccountStatus.Active, account.Status);
         }
-        
+
         [Fact]
         public void CanRegisterInPayment()
         {
@@ -71,9 +71,9 @@ namespace PaymentService.Tests.Domain
             var account = new PolicyAccount("C", "C", "E", "E");
             account.ExpectedPayment(10M, dueDate);
             account.InPayment(10M, dueDate);
-            
-            account.Close(new DateTime(2018,6,1), 5M);
-            
+
+            account.Close(new DateTime(2018, 6, 1), 5M);
+
             Equal(PolicyAccountStatus.Terminated, account.Status);
         }
     }

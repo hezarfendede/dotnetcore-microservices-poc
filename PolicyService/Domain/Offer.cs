@@ -34,7 +34,7 @@ namespace PolicyService.Domain
 
 
         public virtual IReadOnlyCollection<Cover> Covers => new ReadOnlyCollection<Cover>(covers);
-        
+
         public virtual String AgentLogin { get; protected set; }
 
         public static Offer ForPrice(
@@ -54,7 +54,7 @@ namespace PolicyService.Domain
                 null
             );
         }
-        
+
         public static Offer ForPriceAndAgent(
             string productCode,
             DateTime policyFrom,
@@ -100,10 +100,14 @@ namespace PolicyService.Domain
         public virtual Policy Buy(PolicyHolder customer)
         {
             if (IsExpired(SysTime.CurrentTime))
+            {
                 throw new ApplicationException($"Offer {Number} has expired");
+            }
 
             if (Status != OfferStatus.New)
+            {
                 throw new ApplicationException($"Offer {Number} is not in new status and cannot be bought");
+            }
 
             Status = OfferStatus.Converted;
 
@@ -112,7 +116,7 @@ namespace PolicyService.Domain
 
         public virtual bool IsExpired(DateTime theDate)
         {
-            return this.CreationDate.AddDays(30) < theDate;
+            return CreationDate.AddDays(30) < theDate;
         }
     }
 }

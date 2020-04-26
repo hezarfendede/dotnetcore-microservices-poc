@@ -22,7 +22,7 @@ namespace ProductService.Domain
             Index = index;
             Text = text;
         }
-    }    
+    }
 
     public class ChoiceQuestion : Question
     {

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProductService.Domain
 {
@@ -19,7 +16,7 @@ namespace ProductService.Domain
         public Cover()
         { }
 
-        public Cover(string code,string name, string description, bool optional, decimal? sumInsured)
+        public Cover(string code, string name, string description, bool optional, decimal? sumInsured)
         {
             Id = Guid.NewGuid();
             Code = code;

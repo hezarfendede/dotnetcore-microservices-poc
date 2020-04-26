@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ProductService.Test.Controllers
 {
@@ -18,7 +18,7 @@ namespace ProductService.Test.Controllers
             );
 
             var response = await client.PostAsync(uri, requestContent).ConfigureAwait(false);
-            
+
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -31,7 +31,7 @@ namespace ProductService.Test.Controllers
                 var errorDetails = JsonConvert.DeserializeAnonymousType(responseContent, new { Code = "", Message = "" });
                 return RestResult<T>.Error(errorDetails.Code, errorDetails.Message);
             }
-            
+
         }
 
 

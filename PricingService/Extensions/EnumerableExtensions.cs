@@ -8,9 +8,11 @@ namespace PricingService.Extensions
         public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
         {
             if (items == null)
+            {
                 return;
+            }
 
-            foreach(var item in items)
+            foreach (var item in items)
             {
                 action(item);
             }

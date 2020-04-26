@@ -1,7 +1,5 @@
-﻿using PolicySearchService.Api.Queries.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using PolicySearchService.Api.Queries.Dtos;
 
 namespace PolicySearchService.Api.Queries
 {

@@ -11,7 +11,7 @@ namespace PricingService.Commands
     public class CalculatePriceHandler : IRequestHandler<CalculatePriceCommand, CalculatePriceResult>
     {
         private readonly IDataStore dataStore;
-        private readonly CalculatePriceCommandValidator commandValidator = new CalculatePriceCommandValidator(); 
+        private readonly CalculatePriceCommandValidator commandValidator = new CalculatePriceCommandValidator();
 
         public CalculatePriceHandler(IDataStore dataStore)
         {
@@ -36,7 +36,7 @@ namespace PricingService.Commands
                 cmd.PolicyFrom,
                 cmd.PolicyTo,
                 cmd.SelectedCovers,
-                cmd.Answers.ToDictionary(a => a.QuestionCode, a=> a.GetAnswer()));
+                cmd.Answers.ToDictionary(a => a.QuestionCode, a => a.GetAnswer()));
         }
 
         private static CalculatePriceResult ToResult(Calculation calculation)

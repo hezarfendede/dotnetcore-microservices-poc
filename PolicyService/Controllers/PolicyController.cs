@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PolicyService.Api.Commands;
@@ -27,15 +24,15 @@ namespace PolicyService.Controllers
             var result = await bus.Send(cmd);
             return new JsonResult(result);
         }
-        
+
         // GET 
         [HttpGet("{policyNumber}")]
         public async Task<ActionResult> Get(string policyNumber)
         {
-            var result = await bus.Send(new GetPolicyDetailsQuery { PolicyNumber = policyNumber});
+            var result = await bus.Send(new GetPolicyDetailsQuery { PolicyNumber = policyNumber });
             return new JsonResult(result);
         }
-        
+
         // DELETE
         [HttpDelete("/terminate")]
         public async Task<ActionResult> Post([FromBody] TerminatePolicyCommand cmd)

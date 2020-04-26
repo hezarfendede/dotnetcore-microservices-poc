@@ -17,7 +17,7 @@ namespace PolicyService
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
                 .CreateLogger();
-            
+
             CreateWebHostBuilder(args).Build().Run();
         }
 
@@ -29,7 +29,7 @@ namespace PolicyService
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddCommandLine(args)
                 .Build();
-            
+
             return WebHost.CreateDefaultBuilder(args)
                 .UseConfiguration(config)
                 .UseStartup<Startup>()

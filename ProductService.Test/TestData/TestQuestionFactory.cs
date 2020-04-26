@@ -1,7 +1,5 @@
-﻿using ProductService.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using ProductService.Domain;
 
 namespace ProductService.Test.TestData
 {

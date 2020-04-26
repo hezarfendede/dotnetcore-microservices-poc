@@ -33,7 +33,7 @@ namespace PricingService.Api.Converters
                 serializer.Serialize(writer, questionAnswer.GetAnswer());
                 writer.WriteEndObject();
             }
-            
+
         }
 
         private static QuestionAnswer Create(JObject jsonObject)

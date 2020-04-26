@@ -28,7 +28,7 @@ namespace AuthService
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-            
+
             services.AddCors(opt => opt.AddPolicy("CorsPolicy",
                 builder =>
                 {
@@ -38,14 +38,14 @@ namespace AuthService
                         .AllowCredentials()
                         .WithOrigins(appSettingsSection.Get<AppSettings>().AllowedAuthOrigins);
                 }));
-            
+
             services.AddMvc()
                 .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;    
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
             .AddJwtBearer(x =>
             {
@@ -76,7 +76,7 @@ namespace AuthService
             {
                 app.UseHsts();
             }
-            
+
             app.UseCors("CorsPolicy");
 
             app.UseAuthentication();

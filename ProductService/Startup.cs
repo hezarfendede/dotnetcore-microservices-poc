@@ -36,7 +36,7 @@ namespace ProductService
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -51,7 +51,7 @@ namespace ProductService
             app.UseDiscoveryClient();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
-        
+
         private void JsonOptions(MvcNewtonsoftJsonOptions options)
         {
             options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());

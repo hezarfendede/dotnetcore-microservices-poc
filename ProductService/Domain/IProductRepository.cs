@@ -11,7 +11,7 @@ namespace ProductService.Domain
         Task<List<Product>> FindAllActive();
 
         Task<Product> FindOne(string productCode);
-        
+
         Task<Product> FindById(Guid id);
     }
 }

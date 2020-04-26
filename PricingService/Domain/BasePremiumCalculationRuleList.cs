@@ -20,7 +20,7 @@ namespace PricingService.Domain
         public decimal CalculateBasePriceFor(Cover cover, Calculation calculation)
         {
             return rules
-                .Where(r => r.Applies(cover,calculation))
+                .Where(r => r.Applies(cover, calculation))
                 .Select(r => r.CalculateBasePrice(calculation))
                 .FirstOrDefault();
         }

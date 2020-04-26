@@ -24,7 +24,7 @@ namespace PolicyService.Commands
 
         public async Task<CreatePolicyResult> Handle(CreatePolicyCommand request, CancellationToken cancellationToken)
         {
-            
+
             var offer = await uow.Offers.WithNumber(request.OfferNumber);
             var customer = new PolicyHolder
             (
@@ -43,15 +43,15 @@ namespace PolicyService.Commands
 
             uow.Policies.Add(policy);
 
-            await eventPublisher.PublishMessage(PolicyCreated(policy)); 
-            
+            await eventPublisher.PublishMessage(PolicyCreated(policy));
+
             await uow.CommitChanges();
 
             return new CreatePolicyResult
             {
                 PolicyNumber = policy.Number
             };
-            
+
         }
 
         private static PolicyCreated PolicyCreated(Policy policy)

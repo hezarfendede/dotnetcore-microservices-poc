@@ -29,11 +29,11 @@ namespace PricingService
             services.AddDiscoveryClient(Configuration);
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                .AddNewtonsoftJson(opt => 
+                .AddNewtonsoftJson(opt =>
                 {
                     opt.SerializerSettings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
                 });
-            
+
             services.AddMarten(Configuration.GetConnectionString("DefaultConnection"));
             services.AddPricingDemoInitializer();
             services.AddMediatR(typeof(Startup));

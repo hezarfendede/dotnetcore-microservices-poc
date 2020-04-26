@@ -22,7 +22,7 @@ namespace PricingService.DataAccess.Marten
                 _.DatabaseSchemaName = "policy_service";
                 _.Serializer(CustomizeJsonSerializer());
 
-                _.Schema.For<Tariff>().Duplicate(t => t.Code,pgType: "varchar(50)", configure: idx => idx.IsUnique = true);
+                _.Schema.For<Tariff>().Duplicate(t => t.Code, pgType: "varchar(50)", configure: idx => idx.IsUnique = true);
             });
         }
 

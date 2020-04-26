@@ -10,7 +10,7 @@ namespace PaymentService.Domain
         public string PolicyAccountNumber { get; protected set; }
         public string PolicyNumber { get; protected set; }
         public Owner Owner { get; protected set; }
-        
+
         public PolicyAccountStatus Status { get; protected set; }
 
         public ICollection<AccountingEntry> Entries { get; protected set; }
@@ -25,7 +25,7 @@ namespace PaymentService.Domain
             Id = Guid.NewGuid();
             PolicyNumber = policyNumber;
             PolicyAccountNumber = policyAccountNumber;
-            Owner = new Owner(ownerFirstName,ownerLastLastName);
+            Owner = new Owner(ownerFirstName, ownerLastLastName);
             Status = PolicyAccountStatus.Active;
             Entries = new List<AccountingEntry>();
         }
@@ -61,7 +61,9 @@ namespace PaymentService.Domain
         public void Close(DateTime closingDate, decimal? amountToReturn)
         {
             if (!IsActive())
+            {
                 return;
+            }
 
             if (amountToReturn.HasValue)
             {
@@ -76,8 +78,8 @@ namespace PaymentService.Domain
 
     public class Owner
     {
-        public string FirstName { get;  protected set; }
-        public string LastName { get;  protected set; }
+        public string FirstName { get; protected set; }
+        public string LastName { get; protected set; }
 
         protected Owner()
         {

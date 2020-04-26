@@ -22,7 +22,7 @@ namespace PolicyService.Test.Domain
             Assert.Equal(OfferStatus.New, sut.Status);
             return this;
         }
-        
+
         public OfferAssert StatusIsConverted()
         {
             Assert.Equal(OfferStatus.Converted, sut.Status);

@@ -34,13 +34,13 @@ namespace PricingService.Domain
             return calculation;
         }
 
-        
+
 
         private void CalcBasePrices(Calculation calculation)
         {
             foreach (var cover in calculation.Covers.Values)
             {
-                cover.SetPrice(BasePremiumRules.CalculateBasePriceFor(cover,calculation));
+                cover.SetPrice(BasePremiumRules.CalculateBasePriceFor(cover, calculation));
             }
         }
 

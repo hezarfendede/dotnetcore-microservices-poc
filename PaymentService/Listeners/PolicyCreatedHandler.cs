@@ -21,7 +21,7 @@ namespace PaymentService.Listeners
         {
             var policy = new PolicyAccount
             (
-                notification.PolicyNumber, 
+                notification.PolicyNumber,
                 policyAccountNumberGenerator.Generate(),
                 notification.PolicyHolder.FirstName,
                 notification.PolicyHolder.LastName
@@ -30,8 +30,10 @@ namespace PaymentService.Listeners
             using (dataStore)
             {
                 if (await dataStore.PolicyAccounts.ExistsWithPolicyNumber(notification.PolicyNumber))
+                {
                     return;
-                
+                }
+
                 dataStore.PolicyAccounts.Add(policy);
                 await dataStore.CommitChanges();
             }

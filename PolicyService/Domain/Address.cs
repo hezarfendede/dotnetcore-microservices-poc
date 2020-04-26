@@ -13,7 +13,7 @@ namespace PolicyService.Domain
 
         public static Address Of(string country, string zipCode, string city, string street)
         {
-            return new Address(country,zipCode,city,street);
+            return new Address(country, zipCode, city, street);
         }
 
         public Address(string country, string zipCode, string city, string street)

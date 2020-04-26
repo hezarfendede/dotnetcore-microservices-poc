@@ -1,10 +1,10 @@
-﻿using PolicyService.Domain;
-using PricingService.Api.Commands;
-using PricingService.Api.Commands.Dto;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PolicyService.Domain;
+using PricingService.Api.Commands;
+using PricingService.Api.Commands.Dto;
 
 namespace PolicyService.RestClients
 {

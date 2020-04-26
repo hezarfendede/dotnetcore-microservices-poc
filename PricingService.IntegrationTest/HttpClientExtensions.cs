@@ -17,7 +17,7 @@ namespace PricingService.IntegrationTest
             );
 
             var response = await client.PostAsync(uri, requestContent).ConfigureAwait(false);
-            
+
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -30,7 +30,7 @@ namespace PricingService.IntegrationTest
                 var errorDetails = JsonConvert.DeserializeAnonymousType(responseContent, new { Code = "", Message = "" });
                 return RestResult<T>.Error(errorDetails.Code, errorDetails.Message);
             }
-            
+
         }
 
 

@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
 using PolicySearchService.Domain;
 using PolicyService.Api.Events;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace PolicySearchService.Listeners
 {

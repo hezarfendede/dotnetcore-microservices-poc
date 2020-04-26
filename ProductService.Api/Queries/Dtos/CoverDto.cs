@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Optional { get; set; }
-        public decimal? SumInsured { get; set; }        
+        public decimal? SumInsured { get; set; }
     }
 }

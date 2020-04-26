@@ -21,7 +21,7 @@ namespace PaymentService.Queries
         public async Task<GetAccountBalanceQueryResult> Handle(GetAccountBalanceQuery request, CancellationToken cancellationToken)
         {
             var policyAccount = await dataStore.PolicyAccounts.FindByNumber(request.PolicyNumber);
-            
+
             if (policyAccount == null)
             {
                 throw new PolicyAccountNotFound(request.PolicyNumber);

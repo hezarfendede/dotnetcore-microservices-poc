@@ -1,10 +1,10 @@
-﻿using MediatR;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
 using ProductService.Api.Queries;
 using ProductService.Api.Queries.Dtos;
 using ProductService.Domain;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ProductService.Queries
 {
@@ -15,7 +15,7 @@ namespace ProductService.Queries
         public FindProductByCodeHandler(IProductRepository productRepository)
         {
             this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
-        }       
+        }
 
         public async Task<ProductDto> Handle(FindProductByCodeQuery request, CancellationToken cancellationToken)
         {

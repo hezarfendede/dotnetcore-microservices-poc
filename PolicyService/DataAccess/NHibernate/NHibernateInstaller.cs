@@ -11,7 +11,7 @@ namespace PolicyService.DataAccess.NHibernate
 {
     public static class NHibernateInstaller
     {
-        public static IServiceCollection AddNHibernate(this IServiceCollection services,string cnString)
+        public static IServiceCollection AddNHibernate(this IServiceCollection services, string cnString)
         {
             var cfg = new Configuration();
 

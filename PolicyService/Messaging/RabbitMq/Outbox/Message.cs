@@ -11,7 +11,7 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
         protected Message()
         {
         }
-        
+
         public Message(object message)
         {
             Type = message.GetType().FullName + ", " + message.GetType().Assembly.GetName().Name;

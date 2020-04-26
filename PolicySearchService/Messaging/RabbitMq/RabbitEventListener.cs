@@ -1,10 +1,8 @@
-﻿using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PolicySearchService.Messaging.RabbitMq
 {
@@ -26,7 +24,7 @@ namespace PolicySearchService.Messaging.RabbitMq
             foreach (var evtType in eventsToSubscribe)
             {
                 //add check if is INotification
-                this.GetType()
+                GetType()
                     .GetMethod("Subscribe", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     .MakeGenericMethod(evtType)
                     .Invoke(this, new object[] { });
@@ -36,7 +34,7 @@ namespace PolicySearchService.Messaging.RabbitMq
         private void Subscribe<T>() where T : INotification
         {
             //TODO: move exchange name and queue prefix to cfg
-            this.busClient.SubscribeAsync<T>(
+            busClient.SubscribeAsync<T>(
                 async (msg) =>
                 {
                     //add logging

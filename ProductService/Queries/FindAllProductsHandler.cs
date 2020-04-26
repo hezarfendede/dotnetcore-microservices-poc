@@ -1,12 +1,12 @@
-﻿using MediatR;
-using ProductService.Api.Queries;
-using ProductService.Api.Queries.Dtos;
-using ProductService.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using ProductService.Api.Queries;
+using ProductService.Api.Queries.Dtos;
+using ProductService.Domain;
 
 namespace ProductService.Queries
 {
@@ -16,7 +16,7 @@ namespace ProductService.Queries
 
         public FindAllProductsHandler(IProductRepository productRepository)
         {
-            this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));            
+            this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
         }
 
         public async Task<IEnumerable<ProductDto>> Handle(FindAllProductsQuery request, CancellationToken cancellationToken)
@@ -33,7 +33,6 @@ namespace ProductService.Queries
                 Questions = p.Questions != null ? ProductMapper.ToQuestionDtoList(p.Questions) : null,
                 Covers = p.Covers.Any() ? ProductMapper.ToCoverDtoList(p.Covers) : null
             }).ToList();
-        }      
-        
+        }
     }
 }

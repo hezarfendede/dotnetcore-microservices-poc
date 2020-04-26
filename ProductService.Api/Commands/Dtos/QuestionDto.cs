@@ -9,18 +9,18 @@ namespace ProductService.Api.Commands.Dtos
         public string Text { get; set; }
         public abstract QuestionType QuestionType { get; }
     }
-    
+
     public enum QuestionType
     {
         Choice,
         Date,
         Numeric
     }
-    
+
     public class ChoiceQuestionDto : QuestionDto
-    {        
+    {
         public IList<ChoiceDto> Choices { get; set; }
-                
+
         public override QuestionType QuestionType => QuestionType.Choice;
     }
 
@@ -33,7 +33,7 @@ namespace ProductService.Api.Commands.Dtos
     {
         public override QuestionType QuestionType => QuestionType.Numeric;
     }
-    
+
     public class ChoiceDto
     {
         public string Code { get; set; }

@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using PaymentService.Domain;
 
 namespace PaymentService.Jobs
@@ -22,7 +21,7 @@ namespace PaymentService.Jobs
 
             var importService = new InPaymentRegistrationService(dataStore);
             await importService.RegisterInPayments(jobConfig.InPaymentFileFolder, DateTimeOffset.Now);
-            
+
             Console.WriteLine("InPayment import finished.");
 
         }

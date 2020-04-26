@@ -9,7 +9,7 @@ namespace PaymentService.Jobs
     public static class JobsInstaller
     {
         public static IServiceCollection AddBackgroundJobs(
-            this IServiceCollection services, 
+            this IServiceCollection services,
             BackgroundJobsConfig jobsConfig)
         {
             services.AddSingleton(jobsConfig);

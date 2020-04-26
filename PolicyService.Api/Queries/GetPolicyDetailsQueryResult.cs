@@ -4,6 +4,6 @@ namespace PolicyService.Api.Queries
 {
     public class GetPolicyDetailsQueryResult
     {
-        public PolicyDetailsDto Policy { get; set; }    
+        public PolicyDetailsDto Policy { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace PricingService.DataAccess.Marten
             {
                 session.Dispose();
             }
-            
+
         }
     }
 }

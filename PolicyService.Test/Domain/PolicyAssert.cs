@@ -23,10 +23,10 @@ namespace PolicyService.Test.Domain
             Assert.Equal(expectedVersionsCount, sut.Versions.Count);
             return this;
         }
-        
+
         public PolicyAssert HasVersion(int versionNumber)
         {
-            Assert.NotNull(sut.Versions.FirstOrDefault(v => v.VersionNumber==versionNumber));
+            Assert.NotNull(sut.Versions.FirstOrDefault(v => v.VersionNumber == versionNumber));
             return this;
         }
 
@@ -35,13 +35,13 @@ namespace PolicyService.Test.Domain
             Assert.Equal(PolicyStatus.Active, sut.Status);
             return this;
         }
-        
+
         public PolicyAssert StatusIsTerminated()
         {
             Assert.Equal(PolicyStatus.Terminated, sut.Status);
             return this;
         }
-        
+
         public PolicyAssert AgentIs(string agent)
         {
             Assert.Equal(agent, sut.AgentLogin);
@@ -63,7 +63,7 @@ namespace PolicyService.Test.Domain
         {
             return new PolicyVersionAssert(policyVersion);
         }
-        
+
         public PolicyVersionAssert TotalPremiumIs(decimal expectedPremium)
         {
             Assert.Equal(expectedPremium, sut.TotalPremiumAmount);

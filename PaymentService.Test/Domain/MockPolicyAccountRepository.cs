@@ -11,9 +11,9 @@ namespace PaymentService.Test.Domain
 
         public MockPolicyAccountRepository()
         {
-            list.Add("PA1", new PolicyAccount("POLICY_1", "231232132131", "Ann","Smith"));
-            list.Add("PA2", new PolicyAccount("POLICY_2", "389hfswjfrh2032r", "Jimmy","Morrison"));
-            list.Add("PA3", new PolicyAccount("POLICY_3", "0rju130fhj20", "Patrick","Jones"));
+            list.Add("PA1", new PolicyAccount("POLICY_1", "231232132131", "Ann", "Smith"));
+            list.Add("PA2", new PolicyAccount("POLICY_2", "389hfswjfrh2032r", "Jimmy", "Morrison"));
+            list.Add("PA3", new PolicyAccount("POLICY_3", "0rju130fhj20", "Patrick", "Jones"));
         }
 
         public void Add(PolicyAccount policyAccount)
@@ -23,7 +23,7 @@ namespace PaymentService.Test.Domain
 
         public void Update(PolicyAccount policyAccount)
         {
-            
+
         }
 
         public ICollection<PolicyAccount> FindAll()

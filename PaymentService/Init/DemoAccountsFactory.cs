@@ -1,5 +1,5 @@
-﻿using PaymentService.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using PaymentService.Domain;
 
 namespace PaymentService.Init
 {

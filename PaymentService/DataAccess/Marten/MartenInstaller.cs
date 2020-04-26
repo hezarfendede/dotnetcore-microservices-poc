@@ -22,7 +22,7 @@ namespace PaymentService.DataAccess.Marten
                 _.Connection(cn);
                 _.DatabaseSchemaName = "payment_service";
                 _.Serializer(CustomizeJsonSerializer());
-                _.Schema.For<PolicyAccount>().Duplicate(t => t.PolicyNumber,pgType: "varchar(50)", configure: idx => idx.IsUnique = true);
+                _.Schema.For<PolicyAccount>().Duplicate(t => t.PolicyNumber, pgType: "varchar(50)", configure: idx => idx.IsUnique = true);
             });
         }
 

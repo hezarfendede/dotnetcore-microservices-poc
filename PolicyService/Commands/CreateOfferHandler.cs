@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using MediatR;
 using PolicyService.Api.Commands;
 using PolicyService.Domain;
-using PricingDtos = PricingService.Api.Commands.Dto;
 
 namespace PolicyService.Commands
 {
@@ -25,7 +24,7 @@ namespace PolicyService.Commands
             var priceParams = ConstructPriceParams(request);
             var price = await pricingService.CalculatePrice(priceParams);
 
-            
+
             var o = Offer.ForPrice(
                 priceParams.ProductCode,
                 priceParams.PolicyFrom,

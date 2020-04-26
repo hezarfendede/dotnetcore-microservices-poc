@@ -18,7 +18,7 @@ namespace PricingService.Configuration
 
             cfg.Map<FluentValidation.ValidationException>()
                 .ToStatusCode(HttpStatusCode.BadRequest)
-                .WithBody((ex,ctx) => SerializeValidationException(ex));
+                .WithBody((ex, ctx) => SerializeValidationException(ex));
         }
 
         private static string SerializeValidationException(FluentValidation.ValidationException ex)

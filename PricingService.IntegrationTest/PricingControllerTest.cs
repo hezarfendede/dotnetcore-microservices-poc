@@ -27,7 +27,7 @@ namespace PricingService.IntegrationTest
                 ProductCode = "TRI",
                 PolicyFrom = DateTimeOffset.Now.AddDays(5),
                 PolicyTo = DateTimeOffset.Now.AddDays(10),
-                SelectedCovers = new List<string> {  "C1" , "C2", "C3"},
+                SelectedCovers = new List<string> { "C1", "C2", "C3" },
                 Answers = new List<QuestionAnswer>
                 {
                     new NumericQuestionAnswer { QuestionCode = "NUM_OF_ADULTS", Answer = 1M},

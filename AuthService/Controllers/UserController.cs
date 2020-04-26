@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AuthService.Domain;
+﻿using AuthService.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,9 +23,11 @@ namespace AuthService.Controllers
             var token = authService.Authenticate(user.Login, user.Password);
 
             if (token == null)
-                return BadRequest(new {message = "Username of password incorrect"});
+            {
+                return BadRequest(new { message = "Username of password incorrect" });
+            }
 
-            return Ok(new {Token = token});
+            return Ok(new { Token = token });
         }
 
         [HttpGet]

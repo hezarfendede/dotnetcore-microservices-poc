@@ -1,11 +1,10 @@
-﻿using MediatR;
-using PolicySearchService.Api.Queries;
-using PolicySearchService.Domain;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using PolicySearchService.Api.Queries;
+using PolicySearchService.Domain;
 
 namespace PolicySearchService.Queries
 {

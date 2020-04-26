@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PaymentService.Api.Exceptions
+﻿namespace PaymentService.Api.Exceptions
 {
     public class PolicyAccountNotFound : BussinesExceptions
     {

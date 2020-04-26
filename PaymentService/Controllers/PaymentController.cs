@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using PaymentService.Api.Queries;
 
 namespace PaymentService.Controllers
@@ -19,7 +19,7 @@ namespace PaymentService.Controllers
         [HttpGet("accounts/{policyNumber}")]
         public async Task<ActionResult> AccountBalance(string policyNumber)
         {
-            var result = await bus.Send(new GetAccountBalanceQuery {PolicyNumber = policyNumber});
+            var result = await bus.Send(new GetAccountBalanceQuery { PolicyNumber = policyNumber });
             return new JsonResult(result);
         }
     }

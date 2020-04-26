@@ -21,7 +21,7 @@ namespace PaymentService.DataAccess.Marten
         {
             await session.SaveChangesAsync();
         }
-        
+
         public void Dispose()
         {
             Dispose(true);
@@ -34,7 +34,7 @@ namespace PaymentService.DataAccess.Marten
             {
                 session.Dispose();
             }
-            
+
         }
     }
 }

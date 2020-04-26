@@ -1,13 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using RawRabbit.Instantiation;
-using RawRabbit.DependencyInjection.ServiceCollection;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RawRabbit;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using RawRabbit;
+using RawRabbit.DependencyInjection.ServiceCollection;
+using RawRabbit.Instantiation;
 
 namespace PaymentService.Messaging.RabbitMq
 {
@@ -47,7 +44,7 @@ namespace PaymentService.Messaging.RabbitMq
             });
 
             services.AddSingleton(svc => new RabbitEventListener(svc.GetRequiredService<IBusClient>(), svc));
-            
+
             return services;
         }
     }

@@ -1,8 +1,4 @@
-﻿using PricingService.Api.Commands.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace PolicyService.Domain
 {
@@ -41,8 +37,8 @@ namespace PolicyService.Domain
 
         public TextAnswer(string questionCode, string answer)
         {
-            this.QuestionCode = questionCode;
-            this.AnswerValue = answer;
+            QuestionCode = questionCode;
+            AnswerValue = answer;
         }
     }
 
@@ -52,8 +48,8 @@ namespace PolicyService.Domain
 
         public NumericAnswer(string questionCode, decimal answer)
         {
-            this.QuestionCode = questionCode;
-            this.AnswerValue = answer;
+            QuestionCode = questionCode;
+            AnswerValue = answer;
         }
     }
 
@@ -63,8 +59,8 @@ namespace PolicyService.Domain
 
         public ChoiceAnswer(string questionCode, string answer)
         {
-            this.QuestionCode = questionCode;
-            this.AnswerValue = answer;
+            QuestionCode = questionCode;
+            AnswerValue = answer;
         }
     }
 }

@@ -2,7 +2,7 @@
 using ProductService.Domain;
 
 namespace ProductService.Test.TestData
-{    
+{
 
     internal static class TestProductFactory
     {
@@ -67,7 +67,7 @@ namespace ProductService.Test.TestData
                     new NumericQuestion("NUM_OF_CLAIM", 3, "Number of claims in last 5 years"),
                     new ChoiceQuestion("FLOOD", 4, "Located in flood risk area", ChoiceQuestion.YesNoChoice())
             });
-            p.Activate();    
+            p.Activate();
             return p;
         }
 
@@ -94,7 +94,7 @@ namespace ProductService.Test.TestData
                     new NumericQuestion("NUM_OF_CLAIM", 3, "Number of claims in last 5 years"),
                     new ChoiceQuestion("FLOOD", 4, "Located in flood risk area", ChoiceQuestion.YesNoChoice())
             });
-            p.Activate();    
+            p.Activate();
             return p;
         }
 

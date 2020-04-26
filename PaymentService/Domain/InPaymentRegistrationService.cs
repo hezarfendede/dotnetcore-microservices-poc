@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PaymentService.Domain
@@ -12,7 +11,7 @@ namespace PaymentService.Domain
         {
             this.dataStore = dataStore;
         }
-        
+
         public async Task RegisterInPayments(string directory, DateTimeOffset date)
         {
             var fileToImport = new BankStatementFile(directory, date);
@@ -28,16 +27,16 @@ namespace PaymentService.Domain
                 {
                     var account = await dataStore.PolicyAccounts.FindByNumber(txLine.AccountNumber);
                     account?.InPayment(txLine.Amount, txLine.AccountingDate);
-                    
+
                     dataStore.PolicyAccounts.Update(account);
                 }
-                
+
                 fileToImport.MarkProcessed();
-                
+
                 await dataStore.CommitChanges();
             }
         }
 
-        
+
     }
 }

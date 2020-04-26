@@ -21,7 +21,7 @@ namespace PricingService.Infrastructure
             return next();
         }
 
-        
+
     }
 
     public static class LoggingBehaviorInstaller

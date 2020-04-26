@@ -8,8 +8,8 @@ namespace PolicyService.Test.Domain
         {
             return new PolicyHolder
             (
-                "A","B","C", 
-                Address.Of("Poland","00-133","Warsaw","Chłodna 52")
+                "A", "B", "C",
+                Address.Of("Poland", "00-133", "Warsaw", "Chłodna 52")
             );
         }
     }

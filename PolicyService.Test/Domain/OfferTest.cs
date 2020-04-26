@@ -33,7 +33,7 @@ namespace PolicyService.Test.Domain
                 .PriceIs(300M)
                 .AgentIs(null);
         }
-        
+
         [Fact]
         public void CanCreateOfferOnBehalfOfAgentBasedOnPrice()
         {
@@ -83,11 +83,11 @@ namespace PolicyService.Test.Domain
                 .AssertThat(policy.Versions.WithNumber(1))
                 .TotalPremiumIs(offer.TotalPrice);
         }
-        
+
         [Fact]
         public void CanBuyNewNonExpiredOfferFromAgent()
         {
-            var offer = OfferFactory.NewOfferValidUntilForAgent(DateTime.Now.AddDays(5),"jimmy.young");
+            var offer = OfferFactory.NewOfferValidUntilForAgent(DateTime.Now.AddDays(5), "jimmy.young");
 
             var policy = offer.Buy(PolicyHolderFactory.Abc());
 

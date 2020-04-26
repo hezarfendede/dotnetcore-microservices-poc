@@ -25,16 +25,16 @@ namespace PolicyService.Domain
         public virtual PolicyStatus Status { get; protected set; }
 
         public virtual DateTime CreationDate { get; protected set; }
-        
+
         public virtual String AgentLogin { get; protected set; }
 
         protected Policy() { } //NH constuctor
 
         public static Policy FromOffer(PolicyHolder policyHolder, Offer offer)
         {
-            return new Policy(policyHolder,offer);
+            return new Policy(policyHolder, offer);
         }
-        
+
         protected Policy(PolicyHolder policyHolder, Offer offer)
         {
             Id = null;
@@ -50,16 +50,22 @@ namespace PolicyService.Domain
         {
             //ensure is not already terminated
             if (Status != PolicyStatus.Active)
+            {
                 throw new ApplicationException($"Policy {Number} is already terminated");
+            }
 
             //get version valid at term date
             var versionAtTerminationDate = versions.EffectiveOn(terminationDate);
 
             if (versionAtTerminationDate == null)
+            {
                 throw new ApplicationException($"No valid policy {Number} version exists at {terminationDate}. Policy cannot be terminated.");
+            }
 
             if (!versionAtTerminationDate.CoverPeriod.Contains(terminationDate))
+            {
                 throw new ApplicationException($"Policy {Number} does not cover {terminationDate}. Policy cannot be terminated at this date.");
+            }
 
             //create terminal version
             versions.Add(versionAtTerminationDate.EndOn(terminationDate));

@@ -19,7 +19,7 @@ namespace ChatService.Commands
         public async Task<Unit> Handle(SendNotificationCommand request, CancellationToken cancellationToken)
         {
             await chatHubContext.Clients.All.SendAsync("ReceiveMessage", "system", request.Message);
-            
+
             return Unit.Value;
         }
     }

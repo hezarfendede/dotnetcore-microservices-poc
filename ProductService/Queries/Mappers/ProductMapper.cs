@@ -1,8 +1,8 @@
-﻿using ProductService.Api.Queries.Dtos;
-using ProductService.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ProductService.Api.Queries.Dtos;
+using ProductService.Domain;
 
 namespace ProductService.Queries
 {
@@ -35,7 +35,7 @@ namespace ProductService.Queries
             switch (question.GetType().Name)
             {
                 case "NumericQuestion":
-                    return new NumericQuestionDto { QuestionCode = question.Code, Index = question.Index, Text = question.Text };                    
+                    return new NumericQuestionDto { QuestionCode = question.Code, Index = question.Index, Text = question.Text };
                 case "ChoiceQuestion":
                     return new ChoiceQuestionDto
                     {
@@ -46,7 +46,7 @@ namespace ProductService.Queries
                     };
                 case "DateQuestion":
                     return new DateQuestionDto { QuestionCode = question.Code, Index = question.Index, Text = question.Text };
-                    
+
                 default:
                     throw new ArgumentOutOfRangeException(question.GetType().Name);
             }

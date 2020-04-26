@@ -24,12 +24,12 @@ namespace ProductService.DataAccess.EF
 
         public async Task<List<Product>> FindAllActive()
         {
-           return await productDbContext
-               .Products
-               .Include(c => c.Covers)
-               .Include("Questions.Choices")
-               .Where(p => p.Status == ProductStatus.Active)
-               .ToListAsync();
+            return await productDbContext
+                .Products
+                .Include(c => c.Covers)
+                .Include("Questions.Choices")
+                .Where(p => p.Status == ProductStatus.Active)
+                .ToListAsync();
         }
 
         public async Task<Product> FindOne(string productCode)

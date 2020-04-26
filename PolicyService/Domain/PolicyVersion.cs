@@ -33,7 +33,7 @@ namespace PolicyService.Domain
             PolicyHolder policyHolder,
             Offer offer)
         {
-            return new PolicyVersion(policy,version,policyHolder,offer);
+            return new PolicyVersion(policy, version, policyHolder, offer);
         }
 
         public virtual bool IsEffectiveOn(DateTime theDate)
@@ -43,12 +43,12 @@ namespace PolicyService.Domain
 
         public virtual PolicyVersion EndOn(DateTime endDate)
         {
-            var endedCovers = this.covers.Select(c => c.EndOn(endDate)).ToList();
-            
+            var endedCovers = covers.Select(c => c.EndOn(endDate)).ToList();
+
             var termVersion = new PolicyVersion
             {
-                Policy = this.Policy,
-                VersionNumber = this.Policy.NextVersionNumber(),
+                Policy = Policy,
+                VersionNumber = Policy.NextVersionNumber(),
                 PolicyHolder = new PolicyHolder(PolicyHolder.FirstName, PolicyHolder.LastName, PolicyHolder.Pesel, PolicyHolder.Address),
                 CoverPeriod = CoverPeriod.EndOn(endDate),
                 VersionValidityPeriod = ValidityPeriod.Between(endDate.AddDays(1), VersionValidityPeriod.ValidTo),

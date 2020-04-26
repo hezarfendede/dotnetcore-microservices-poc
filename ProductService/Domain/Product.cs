@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 namespace ProductService.Domain
- {
+{
     public class Product
-     {
+    {
         public Guid Id { get; private set; }
         public string Code { get; private set; }
         public string Name { get; private set; }
@@ -31,33 +31,35 @@ namespace ProductService.Domain
             MaxNumberOfInsured = maxNumberOfInsured;
         }
 
-         public static Product CreateDraft(string code, string name, string image, string description, int maxNumberOfInsured)
-         {
-             return new Product(code,name,image,description,maxNumberOfInsured);
-         }
+        public static Product CreateDraft(string code, string name, string image, string description, int maxNumberOfInsured)
+        {
+            return new Product(code, name, image, description, maxNumberOfInsured);
+        }
 
-         public void Activate()
-         {
-             EnsureIsDraft();
-             Status = ProductStatus.Active;
-         }
+        public void Activate()
+        {
+            EnsureIsDraft();
+            Status = ProductStatus.Active;
+        }
 
-         public void Discontinue()
-         {
-             Status = ProductStatus.Discontinued;
-         }
+        public void Discontinue()
+        {
+            Status = ProductStatus.Discontinued;
+        }
 
-         public void AddCover(string code, string name, string description, bool optional, decimal? sumInsured)
-         {
-             EnsureIsDraft();
-             Covers.Add(new Cover(code, name, description, optional, sumInsured));
-         }
-        
+        public void AddCover(string code, string name, string description, bool optional, decimal? sumInsured)
+        {
+            EnsureIsDraft();
+            Covers.Add(new Cover(code, name, description, optional, sumInsured));
+        }
+
         public void AddQuestions(IEnumerable<Question> questions)
         {
             EnsureIsDraft();
             foreach (var q in questions)
+            {
                 Questions.Add(q);
+            }
         }
 
         private void EnsureIsDraft()
@@ -71,8 +73,8 @@ namespace ProductService.Domain
 
     public enum ProductStatus
     {
-     Draft,
-     Active,
-     Discontinued
+        Draft,
+        Active,
+        Discontinued
     }
- }
+}

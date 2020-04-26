@@ -1,15 +1,15 @@
-﻿using FluentValidation;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using FluentValidation;
 using Moq;
 using PricingService.Api.Commands;
 using PricingService.Api.Commands.Dto;
 using PricingService.Commands;
 using PricingService.Domain;
 using PricingService.Test.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace PricingService.Test.Commands
@@ -17,7 +17,8 @@ namespace PricingService.Test.Commands
     public class CalculatePriceHandlerShould
     {
         [Fact]
-        public async Task ThrowExceptionsIfTheCommandIsDefault() {
+        public async Task ThrowExceptionsIfTheCommandIsDefault()
+        {
             var command = new CalculatePriceCommand();
             var handler = new CalculatePriceHandler(new Mock<IDataStore>().Object);
 
@@ -28,7 +29,8 @@ namespace PricingService.Test.Commands
         }
 
         [Fact]
-        public async Task ThrowAnExceptionIfTheCommandsProductCodeIsEmpty() {
+        public async Task ThrowAnExceptionIfTheCommandsProductCodeIsEmpty()
+        {
             var command = new CalculatePriceCommand { SelectedCovers = new List<string>(), Answers = new List<QuestionAnswer>() };
             var handler = new CalculatePriceHandler(new Mock<IDataStore>().Object);
 
@@ -40,7 +42,8 @@ namespace PricingService.Test.Commands
         }
 
         [Fact]
-        public async Task ThrowAnExceptionIfTheCommandsSelectedCoversIsEmpty() {
+        public async Task ThrowAnExceptionIfTheCommandsSelectedCoversIsEmpty()
+        {
             var command = new CalculatePriceCommand { ProductCode = "test", Answers = new List<QuestionAnswer>() };
             var handler = new CalculatePriceHandler(new Mock<IDataStore>().Object);
 
@@ -52,7 +55,8 @@ namespace PricingService.Test.Commands
         }
 
         [Fact]
-        public async Task ThrowAnExceptionIfTheCommandsAnswersIsEmpty() {
+        public async Task ThrowAnExceptionIfTheCommandsAnswersIsEmpty()
+        {
             var command = new CalculatePriceCommand { ProductCode = "test", SelectedCovers = new List<string>() };
             var handler = new CalculatePriceHandler(new Mock<IDataStore>().Object);
 
@@ -64,9 +68,11 @@ namespace PricingService.Test.Commands
         }
 
         [Fact]
-        public async Task ReturnCorrectPrice() {
+        public async Task ReturnCorrectPrice()
+        {
             var tariff = TariffFactory.Travel();
-            var command = new CalculatePriceCommand {
+            var command = new CalculatePriceCommand
+            {
                 ProductCode = tariff.Code,
                 PolicyFrom = DateTimeOffset.Now.AddDays(5),
                 PolicyTo = DateTimeOffset.Now.AddDays(10),

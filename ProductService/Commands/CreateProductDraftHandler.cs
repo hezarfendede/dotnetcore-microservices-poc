@@ -48,10 +48,10 @@ namespace ProductService.Commands
                             dateQuestion.Text));
                         break;
                     case ChoiceQuestionDto choiceQuestion:
-                        questions.Add(new ChoiceQuestion(choiceQuestion.QuestionCode, choiceQuestion.Index, 
-                            choiceQuestion.Text, choiceQuestion.Choices.Select(c=>new Choice(c.Code,c.Label)).ToList()));
+                        questions.Add(new ChoiceQuestion(choiceQuestion.QuestionCode, choiceQuestion.Index,
+                            choiceQuestion.Text, choiceQuestion.Choices.Select(c => new Choice(c.Code, c.Label)).ToList()));
                         break;
-                }    
+                }
             }
             draft.AddQuestions(questions);
 

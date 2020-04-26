@@ -1,5 +1,5 @@
-﻿using ProductService.Api.Queries.Dtos;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ProductService.Api.Queries.Dtos;
 
 namespace ProductService.Test.TestData
 {

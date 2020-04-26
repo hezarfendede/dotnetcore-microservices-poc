@@ -25,7 +25,7 @@ namespace PricingService.Domain
             DateTimeOffset policyFrom,
             DateTimeOffset policyTo,
             IEnumerable<string> selectedCovers,
-            Dictionary<string,object> subject
+            Dictionary<string, object> subject
             )
         {
             ProductCode = productCode;
@@ -45,7 +45,7 @@ namespace PricingService.Domain
             values.Add(PolicyFrom);
             parameters.Add(new Parameter("policyTo", typeof(DateTimeOffset)));
             values.Add(PolicyTo);
-            
+
             foreach (var cover in Covers)
             {
                 parameters.Add(new Parameter(cover.Key, typeof(Cover)));

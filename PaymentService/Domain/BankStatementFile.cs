@@ -1,10 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
-using PaymentService.Api.Exceptions;
-using PaymentService.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using PaymentService.Api.Exceptions;
 
 namespace PaymentService.Domain
 {
@@ -31,18 +29,19 @@ namespace PaymentService.Domain
 
         public List<BankStatement> Read()
         {
-            try {
+            try
+            {
                 return File.ReadAllLines(FullPath)
                                         .Skip(1) // skip header column
                                         .Select(ReadRow)
                                         .ToList();
-            } 
+            }
             catch (FileNotFoundException ex)
             {
                 throw new BankStatementsFileNotFound(ex);
             }
             catch (IOException ex)
-            {    
+            {
                 throw new BankStatementsFileReadingError(ex);
             }
         }

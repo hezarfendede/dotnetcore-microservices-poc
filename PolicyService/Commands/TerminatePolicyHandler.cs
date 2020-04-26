@@ -24,11 +24,11 @@ namespace PolicyService.Commands
             var policy = await uow.Policies.WithNumber(request.PolicyNumber);
 
             var terminationResult = policy.Terminate(request.TerminationDate);
-            
+
             await eventPublisher.PublishMessage(PolicyTerminated(terminationResult));
 
             await uow.CommitChanges();
-            
+
             return new TerminatePolicyResult
             {
                 PolicyNumber = policy.Number,

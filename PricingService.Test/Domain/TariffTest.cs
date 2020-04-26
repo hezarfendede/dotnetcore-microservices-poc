@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Xunit;
 using PricingService.Domain;
+using Xunit;
 using static Xunit.Assert;
 
 namespace PricingService.Test.Domain
@@ -23,7 +23,7 @@ namespace PricingService.Test.Domain
                 "TRI",
                 DateTimeOffset.Now.AddDays(5),
                 DateTimeOffset.Now.AddDays(10),
-                new List<string> {"C1", "C2" , "C3"},
+                new List<string> { "C1", "C2", "C3" },
                 subject
                 );
 
@@ -53,7 +53,7 @@ namespace PricingService.Test.Domain
                 "HSI",
                 DateTimeOffset.Now.AddDays(5),
                 DateTimeOffset.Now.AddDays(5).AddYears(1),
-                new List<string> { "C1", "C2", "C3" }, 
+                new List<string> { "C1", "C2", "C3" },
                 subject
                 );
 

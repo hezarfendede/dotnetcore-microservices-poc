@@ -25,14 +25,14 @@ namespace PolicyService.Queries
             {
                 throw new ApplicationException($"Policy {request.PolicyNumber} not found!");
             }
-            
+
             return ConstructResult(policy);
         }
 
         private GetPolicyDetailsQueryResult ConstructResult(Policy policy)
         {
             var effectiveVersion = policy.Versions.FirstVersion();
-            
+
             return new GetPolicyDetailsQueryResult
             {
                 Policy = new PolicyDetailsDto
@@ -43,9 +43,9 @@ namespace PolicyService.Queries
                     DateTo = effectiveVersion.CoverPeriod.ValidTo,
                     PolicyHolder = $"{effectiveVersion.PolicyHolder.FirstName} {effectiveVersion.PolicyHolder.LastName}",
                     TotalPremium = effectiveVersion.TotalPremiumAmount,
-                    
+
                     AccountNumber = null,
-                    Covers = effectiveVersion.Covers.Select(c=>c.Code).ToList()
+                    Covers = effectiveVersion.Covers.Select(c => c.Code).ToList()
                 }
             };
         }

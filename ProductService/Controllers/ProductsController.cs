@@ -30,10 +30,10 @@ namespace ProductService.Controllers
         [HttpGet("{code}")]
         public async Task<ActionResult> GetByCode([FromRoute]string code)
         {
-            var result = await mediator.Send(new FindProductByCodeQuery{ ProductCode = code });                        
+            var result = await mediator.Send(new FindProductByCodeQuery { ProductCode = code });
             return new JsonResult(result);
         }
-        
+
         // POST api/products
         [HttpPost]
         public async Task<ActionResult> PostDraft([FromBody] CreateProductDraftCommand request)
@@ -41,7 +41,7 @@ namespace ProductService.Controllers
             var result = await mediator.Send(request);
             return new JsonResult(result);
         }
-        
+
         // POST api/products/activate
         [HttpPost("/activate")]
         public async Task<ActionResult> Activate([FromBody] ActivateProductCommand request)
@@ -49,7 +49,7 @@ namespace ProductService.Controllers
             var result = await mediator.Send(request);
             return new JsonResult(result);
         }
-        
+
         // POST api/products/discontinue
         [HttpPost("/discontinue")]
         public async Task<ActionResult> Discontinue([FromBody] DiscontinueProductCommand request)
@@ -57,6 +57,5 @@ namespace ProductService.Controllers
             var result = await mediator.Send(request);
             return new JsonResult(result);
         }
-        
-    }    
+    }
 }

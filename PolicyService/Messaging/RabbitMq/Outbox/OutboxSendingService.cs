@@ -34,8 +34,8 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
             timer?.Change(Timeout.Infinite, 0);
             return Task.CompletedTask;
         }
-        
-        
+
+
         private async void PushMessages(object state)
         {
             var hasLock = false;
@@ -48,7 +48,7 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
                 {
                     return;
                 }
-                
+
                 await outbox.PushPendingMessages();
 
             }

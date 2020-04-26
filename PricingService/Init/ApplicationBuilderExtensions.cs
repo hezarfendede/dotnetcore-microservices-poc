@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace PricingService.Init
