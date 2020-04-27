@@ -51,7 +51,6 @@ namespace PolicyService.Commands
             {
                 PolicyNumber = policy.Number
             };
-
         }
 
         private static PolicyCreated PolicyCreated(Policy policy)

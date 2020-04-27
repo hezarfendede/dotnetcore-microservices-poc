@@ -81,7 +81,6 @@ namespace ProductService.Test.Handlers
             Assert.NotEmpty(result);
             Assert.NotNull(resultQuestion);
 
-
             Assert.Equal(choiceQuestion.Index, resultQuestion.Index);
             Assert.Equal(choiceQuestion.Text, resultQuestion.Text);
             Assert.NotNull(resultQuestion.Choices);

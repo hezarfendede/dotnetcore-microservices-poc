@@ -24,6 +24,5 @@ namespace ProductService.Test.TestData
                 }
             };
         }
-
     }
 }

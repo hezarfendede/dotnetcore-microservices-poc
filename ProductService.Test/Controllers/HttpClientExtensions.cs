@@ -31,9 +31,7 @@ namespace ProductService.Test.Controllers
                 var errorDetails = JsonConvert.DeserializeAnonymousType(responseContent, new { Code = "", Message = "" });
                 return RestResult<T>.Error(errorDetails.Code, errorDetails.Message);
             }
-
         }
-
 
         public static async Task<T> DoGetAsync<T>(this HttpClient client, string uri)
             where T : class

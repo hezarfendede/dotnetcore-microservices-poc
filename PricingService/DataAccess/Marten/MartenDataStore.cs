@@ -8,15 +8,14 @@ namespace PricingService.DataAccess.Marten
     public class MartenDataStore : IDataStore
     {
         private readonly IDocumentSession session;
-        private readonly ITariffRepository tariffs;
 
         public MartenDataStore(IDocumentStore documentStore)
         {
             session = documentStore.LightweightSession();
-            tariffs = new MartenTariffRepository(session);
+            Tariffs = new MartenTariffRepository(session);
         }
 
-        public ITariffRepository Tariffs => tariffs;
+        public ITariffRepository Tariffs { get; }
 
         public async Task CommitChanges()
         {
@@ -35,7 +34,6 @@ namespace PricingService.DataAccess.Marten
             {
                 session.Dispose();
             }
-
         }
     }
 }

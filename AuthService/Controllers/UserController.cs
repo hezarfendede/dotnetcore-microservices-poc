@@ -35,6 +35,5 @@ namespace AuthService.Controllers
         {
             return Ok(authService.AgentFromLogin(HttpContext.User.Identity.Name));
         }
-
     }
 }

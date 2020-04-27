@@ -27,7 +27,6 @@ namespace ProductService.Test.Controllers
             True(response.Count > 1);
         }
 
-
         [Fact]
         public async Task GetByCode_ReturnsJsonResult_WithOneProductOfCorrectType()
         {
@@ -41,7 +40,5 @@ namespace ProductService.Test.Controllers
             Equal(productTravel.Name, response.Name);
             Equal(productTravel.Description, response.Description);
         }
-
-
     }
 }

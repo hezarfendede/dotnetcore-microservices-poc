@@ -67,7 +67,7 @@ namespace PolicyService.RestClients
                 };
             }
 
-            throw new ArgumentException("Unexpectd answer type " + a.GetType().Name);
+            throw new ArgumentException("Unexpected answer type " + a.GetType().Name);
         }
     }
 }

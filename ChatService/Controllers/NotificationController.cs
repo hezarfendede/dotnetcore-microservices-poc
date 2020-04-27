@@ -21,7 +21,7 @@ namespace ChatService.Controllers
         [HttpPost]
         public async Task<IActionResult> SendNotification([FromBody] SendNotificationCommand cmd)
         {
-            var result = await bus.Send(cmd);
+            await bus.Send(cmd);
             return Ok();
         }
     }

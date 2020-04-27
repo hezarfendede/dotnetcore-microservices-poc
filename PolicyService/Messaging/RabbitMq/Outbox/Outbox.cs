@@ -21,7 +21,6 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
             this.logger = new OutboxLogger(logger);
         }
 
-
         public async Task PushPendingMessages()
         {
             var messagesToPush = FetchPendingMessages();
@@ -87,7 +86,6 @@ namespace PolicyService.Messaging.RabbitMq.Outbox
                     cfg.OnExchange("lab-dotnet-micro").WithRoutingKey(messageKey);
                 });
         }
-
     }
 
     class OutboxLogger

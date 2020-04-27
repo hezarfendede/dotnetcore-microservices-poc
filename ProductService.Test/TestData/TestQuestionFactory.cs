@@ -22,6 +22,5 @@ namespace ProductService.Test.TestData
         {
             return new DateQuestion("BIRTHDATE", 3, "Birhtdate");
         }
-
     }
 }

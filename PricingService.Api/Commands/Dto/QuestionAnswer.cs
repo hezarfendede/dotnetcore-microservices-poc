@@ -9,7 +9,6 @@ namespace PricingService.Api.Commands.Dto
         public string QuestionCode { get; set; }
         public abstract QuestionType QuestionType { get; }
         public abstract object GetAnswer();
-
     }
 
     public enum QuestionType
@@ -30,7 +29,6 @@ namespace PricingService.Api.Commands.Dto
     {
         public override QuestionType QuestionType => QuestionType.Text;
     }
-
 
     public class NumericQuestionAnswer : QuestionAnswer<decimal>
     {

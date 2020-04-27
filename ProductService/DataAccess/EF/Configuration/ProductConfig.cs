@@ -8,7 +8,6 @@ namespace ProductService.DataAccess.EF.Configuration
     {
         public void Configure(EntityTypeBuilder<Product> entity)
         {
-
             entity.ToTable("Product");
             entity.Property(q => q.Code).IsRequired();
             entity.Property(q => q.Name).IsRequired();

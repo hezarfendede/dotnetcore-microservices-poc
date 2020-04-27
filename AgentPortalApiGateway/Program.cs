@@ -31,8 +31,7 @@ namespace AgentPortalApiGateway
                     config
                         .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
                         .AddJsonFile("appsettings.json", true, true)
-                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true,
-                            true)
+                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
                         .AddJsonFile("ocelot.json", false, false)
                         .AddEnvironmentVariables();
                 })
@@ -55,7 +54,6 @@ namespace AgentPortalApiGateway
                             ValidateIssuer = false,
                             ValidateAudience = false
                         };
-
                     });
                     s.AddOcelot().AddEureka().AddCacheManager(x => x.WithDictionaryHandle());
                 })
@@ -74,7 +72,6 @@ namespace AgentPortalApiGateway
                         .AllowCredentials()
                     );
                     a.UseOcelot().Wait();
-
                 })
                 .Build();
         }

@@ -5,29 +5,40 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Products/{everything}",
       "ServiceName": "ProductService",
-      "UpstreamHttpMethod": [ "Get" ],
-      "FileCacheOptions": { "TtlSeconds": 15 },
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15
+      },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
+        "AllowedScopes": [
+        ]
       },
       "RouteClaimsRequirement": {
-        "userType" : "SALESMAN"
+        "userType": "SALESMAN"
       }
     },
+
     {
       "DownstreamPathTemplate": "/api/Products",
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Products",
       "ServiceName": "ProductService",
-      "UpstreamHttpMethod": [ "Get" ],
-      "FileCacheOptions": { "TtlSeconds": 15 },
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15
+      },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
+        "AllowedScopes": [
+        ]
       },
       "RouteClaimsRequirement": {
-        "userType" : "SALESMAN"
+        "userType": "SALESMAN"
       }
     },
 
@@ -36,16 +47,19 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Offers",
       "ServiceName": "PolicyService",
-      "UpstreamHttpMethod": [ "Post" ],
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
+        "AllowedScopes": [
+        ]
       },
       "RouteClaimsRequirement": {
-        "userType" : "SALESMAN"
+        "userType": "SALESMAN"
       },
       "AddHeadersToRequest": {
-        "AgentLogin" : "Claims[http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] > value[0] > |"
+        "AgentLogin": "Claims[http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] > value[0] > |"
       }
     },
 
@@ -54,13 +68,16 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Policies",
       "ServiceName": "PolicyService",
-      "UpstreamHttpMethod": [ "Post" ],
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
+        "AllowedScopes": [
+        ]
       },
       "RouteClaimsRequirement": {
-        "userType" : "SALESMAN"
+        "userType": "SALESMAN"
       }
     },
 
@@ -69,14 +86,19 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Policies/{number}",
       "ServiceName": "PolicyService",
-      "UpstreamHttpMethod": [ "Get" ],
-      "FileCacheOptions": { "TtlSeconds": 15 },
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15
+      },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
+        "AllowedScopes": [
+        ]
       },
       "RouteClaimsRequirement": {
-        "userType" : "SALESMAN"
+        "userType": "SALESMAN"
       }
     },
 
@@ -85,20 +107,27 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/PolicySearch",
       "ServiceName": "PolicySearchService",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
+        "AllowedScopes": [
+        ]
       },
       "RouteClaimsRequirement": {
-        "userType" : "SALESMAN"
+        "userType": "SALESMAN"
       }
     }
   ],
   "GlobalConfiguration": {
     "RequestIdKey": "OcRequestId",
     "AdministrationPath": "/administration",
-    "UseServiceDiscovery" : true,
-    "ServiceDiscoveryProvider": { "Type": "Eureka", "Host" : "localhost", "Port" : "8761"}
+    "UseServiceDiscovery": true,
+    "ServiceDiscoveryProvider": {
+      "Type": "Eureka",
+      "Host": "localhost",
+      "Port": "8761"
+    }
   }
 }

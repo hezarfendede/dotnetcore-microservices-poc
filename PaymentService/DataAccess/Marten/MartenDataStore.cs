@@ -34,7 +34,6 @@ namespace PaymentService.DataAccess.Marten
             {
                 session.Dispose();
             }
-
         }
     }
 }

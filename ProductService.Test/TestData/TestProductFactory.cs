@@ -3,7 +3,6 @@ using ProductService.Domain;
 
 namespace ProductService.Test.TestData
 {
-
     internal static class TestProductFactory
     {
         internal static Product EmptyTravel()
@@ -42,7 +41,6 @@ namespace ProductService.Test.TestData
             p.Activate();
             return p;
         }
-
 
         internal static Product House()
         {
